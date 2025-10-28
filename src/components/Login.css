@@ -1,0 +1,86 @@
+.login-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-card {
+    background: white;
+    border-radius: 16px;
+    padding: 48px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.login-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin: 0 0 40px 0;
+}
+
+.login-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.google-button {
+    background: white;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.google-button:hover {
+    background: #f8f9fa;
+}
+
+.discord-button {
+    background: #5865F2;
+    color: white;
+}
+
+.discord-button:hover {
+    background: #4752C4;
+}
+
+.button-icon {
+    width: 24px;
+    height: 24px;
+}
