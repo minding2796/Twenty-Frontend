@@ -1,0 +1,35 @@
+.np-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: start;
+    align-items: center;
+    background: #262626;
+}
+
+.np-card {
+    width: 50rem;
+    margin: 5rem 0 2rem 0;
+    border: 3px solid black;
+    border-radius: 15px;
+    background: #ddd;
+    color: #000;
+}
+
+.np-card > h1 {
+    font-size: 2.5rem;
+    margin: 2rem 3rem;
+}
+
+.np-card > hr {
+    border: 2px solid black;
+    border-radius: 100%;
+    margin: 0 2rem;
+}
+
+.np-card > p {
+    margin: 1rem 3rem;
+    text-align: justify;
+    font-size: 1rem;
+    font-weight: 200;
+}

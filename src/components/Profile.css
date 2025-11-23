@@ -1,0 +1,32 @@
+.profile-image {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+}
+
+.profile-button {
+    background: none;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.profile-button:focus {
+    outline: none;
+}
+
+.profile-login-button {
+    padding: 0.5em 1em;
+    white-space: nowrap;
+    background: #9c4ee2;
+    color: white;
+}
+
+.profile-login-button:hover {
+    background: #882cdb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(81, 4, 123);
+}

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './OAuthCallback.css';
-import {api} from '../utils/api';
+import {api, type UserData} from '../utils/api';
 
 interface OAuthCallbackProps {
     onSuccess: () => void;
@@ -25,18 +25,20 @@ const OAuthCallback: React.FC<OAuthCallbackProps> = ({onSuccess, onError}) => {
             if (token) {
                 localStorage.setItem('accessToken', token);
                 try {
-                    await api.getMe();
+                    const user: UserData = await api.getMe();
                     setStatus('success');
+                    window.dispatchEvent(new CustomEvent('profile', { detail: user }));
                 } catch (e) {
                     console.error('Failed to load user data:', e);
                 }
+                window.dispatchEvent(new CustomEvent('token', { detail: true }));
                 if (typeof window.Unity !== 'undefined') window.Unity.call(token);
 
                 // 성공 처리
                 onSuccess();
 
                 // URL에서 토큰 제거
-                window.history.replaceState({}, document.title, '/');
+                window.history.replaceState({}, document.title, '/my-page');
             }
         };
 

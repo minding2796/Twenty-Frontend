@@ -3,38 +3,41 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #262626;
 }
 
 .mypage-card {
-    background: white;
+    background: #171717;
     border-radius: 16px;
-    padding: 40px;
+    padding: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     max-width: 500px;
     width: 100%;
+    margin: 20px;
 }
 
 .mypage-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     margin-bottom: 32px;
     padding-bottom: 20px;
     border-bottom: 2px solid #f0f0f0;
 }
 
-.mypage-header h1 {
+.mypage-header>h1 {
+    display: flex;
+    flex-grow: 1;
     font-size: 28px;
     font-weight: 700;
-    color: #333;
+    color: #ffffff;
     margin: 0;
 }
 
 .logout-button {
     padding: 10px 20px;
-    background: #ff4757;
+    background: #9c4ee2;
     color: white;
     border: none;
     border-radius: 8px;
@@ -45,9 +48,9 @@
 }
 
 .logout-button:hover {
-    background: #ee5a6f;
+    background: #882cdb;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3);
+    box-shadow: 0 4px 12px rgb(81, 4, 123);
 }
 
 .profile-section {
@@ -83,24 +86,16 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-.provider-badge[data-provider="google"] {
-    background: #4285F4;
-}
-
-.provider-badge[data-provider="discord"] {
-    background: #5865F2;
-}
-
-.user-name {
+h2.user-name {
     font-size: 24px;
     font-weight: 700;
-    color: #333;
+    color: #ffffff;
     margin: 0 0 8px 0;
 }
 
 .user-email {
     font-size: 16px;
-    color: #666;
+    color: #a6a6a6;
     margin: 0;
 }
 
@@ -108,7 +103,6 @@
     background: #f8f9fa;
     border-radius: 12px;
     padding: 24px;
-    margin-bottom: 24px;
 }
 
 .info-item {
@@ -135,15 +129,8 @@
     font-weight: 500;
 }
 
-.provider-text[data-provider="google"] {
-    color: #4285F4;
-}
-
-.provider-text[data-provider="discord"] {
-    color: #5865F2;
-}
-
 .actions-section {
+    margin-top: 24px;
     display: flex;
     gap: 12px;
 }
@@ -160,22 +147,12 @@
 }
 
 .action-button.primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #9c4ee2;
     color: white;
 }
 
 .action-button.primary:hover {
+    background: #882cdb;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-.action-button.secondary {
-    background: white;
-    color: #667eea;
-    border: 2px solid #667eea;
-}
-
-.action-button.secondary:hover {
-    background: #f8f9fa;
-    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(81, 4, 123);
 }

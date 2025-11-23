@@ -10,8 +10,13 @@ interface MyPageProps {
 const MyPage: React.FC<MyPageProps> = ({user, onLogout}) => {
     const handleLogout = () => {
         localStorage.removeItem('accessToken');
+        window.dispatchEvent(new CustomEvent('token', { detail: false }));
         onLogout();
     };
+
+    const handleEdit = () => {
+        window.location.href = '/my-page/edit';
+    }
 
     return (
         <div className="mypage-container">
@@ -37,19 +42,13 @@ const MyPage: React.FC<MyPageProps> = ({user, onLogout}) => {
                         <span className="info-value">{user.id}</span>
                     </div>
                     <div className="info-item">
-                        <span className="info-label">로그인 제공자</span>
-                        <span className="info-value provider-text" data-provider={user.provider}>
-              {user.provider === 'GOOGLE' ? 'Google' : 'Discord'}
-            </span>
-                    </div>
-                    <div className="info-item">
                         <span className="info-label">이메일</span>
                         <span className="info-value">{user.email}</span>
                     </div>
                 </div>
 
                 <div className="actions-section">
-                    <button className="action-button primary">프로필 수정</button>
+                    <button className="action-button primary" onClick={handleEdit}>프로필 수정</button>
                 </div>
             </div>
         </div>

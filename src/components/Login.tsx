@@ -13,6 +13,8 @@ const Login: React.FC = () => {/*
         window.location.href = api.getDiscordLoginUrl();
     };
 
+    window.history.replaceState({}, document.title, '/login');
+
     return (
         <div className="login-container">
             <div className="login-card">

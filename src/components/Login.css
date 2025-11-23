@@ -3,12 +3,12 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #262626;
 }
 
 .login-card {
-    background: white;
+    margin: 20px;
+    background: #171717;
     border-radius: 16px;
     padding: 48px 40px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -20,13 +20,13 @@
 .login-title {
     font-size: 32px;
     font-weight: 700;
-    color: #333;
+    color: #ffffff;
     margin: 0 0 12px 0;
 }
 
 .login-subtitle {
     font-size: 16px;
-    color: #666;
+    color: #a6a6a6;
     margin: 0 0 40px 0;
 }
 

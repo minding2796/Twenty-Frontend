@@ -1,9 +1,14 @@
-import { useState, useEffect } from 'react'
+import {useEffect, useState} from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login'
 import MyPage from './components/MyPage'
 import OAuthCallback from './components/OAuthCallback'
-import { api, type UserData } from './utils/api'
+import MainPage from './components/MainPage'
+import News from "./components/News";
+import {api, type UserData} from './utils/api'
 import './App.css'
+import NewsPage from "./components/NewsPage.tsx";
+import ProfileEditPage from "./components/ProfileEditPage";
 
 function App() {
     const [user, setUser] = useState<UserData | null>(null);
@@ -66,17 +71,16 @@ function App() {
                 flexGrow: '1',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '100vh',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+                background: '#262626'
             }}>
-                <div style={{ color: 'white', fontSize: '24px' }}>로딩 중...</div>
+                <div style={{color: 'white', fontSize: '24px'}}>로딩 중...</div>
             </div>
         );
     }
 
     // OAuth 콜백 처리
     if (isCallback) {
-        return <OAuthCallback onSuccess={handleOAuthSuccess} onError={handleOAuthError} />;
+        return <OAuthCallback onSuccess={handleOAuthSuccess} onError={handleOAuthError}/>;
     }
 
     // 에러 표시
@@ -87,8 +91,7 @@ function App() {
                 flexGrow: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '100vh',
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+                background: '#262626'
             }}>
                 <div style={{
                     background: 'white',
@@ -97,9 +100,9 @@ function App() {
                     textAlign: 'center',
                     maxWidth: '400px'
                 }}>
-                    <div style={{ color: '#f44336', fontSize: '48px', marginBottom: '20px' }}>⚠️</div>
-                    <h2 style={{ color: '#333', marginBottom: '12px' }}>오류 발생</h2>
-                    <p style={{ color: '#666', marginBottom: '20px' }}>{error}</p>
+                    <div style={{color: '#f44336', fontSize: '48px', marginBottom: '20px'}}>⚠️</div>
+                    <h2 style={{color: '#333', marginBottom: '12px'}}>오류 발생</h2>
+                    <p style={{color: '#666', marginBottom: '20px'}}>{error}</p>
                     <button
                         onClick={() => setError(null)}
                         style={{
@@ -121,14 +124,17 @@ function App() {
     }
 
     return (
-        <>
-            {user ? (
-                <MyPage user={user} onLogout={handleLogout} />
-            ) : (
-                <Login />
-            )}
-        </>
-    )
+        <Router>
+            <Routes>
+                <Route path='/my-page' element={(user ? <MyPage user={user} onLogout={handleLogout}/> : <Login/>)}/>
+                <Route path='/my-page/edit' element={(user ? <ProfileEditPage user={user}/> : <Login/>)}/>
+                <Route path='/login' element={(user ? <MyPage user={user} onLogout={handleLogout}/> : <Login/>)}/>
+                <Route path='/' element={(typeof window.Unity !== 'undefined' ? (user ? <MyPage user={user} onLogout={handleLogout}/> : <Login/>) : <MainPage/>)}/>
+                <Route path='/news' element={(<News/>)}/>
+                <Route path='/news/:id' element={(<NewsPage/>)}/>
+            </Routes>
+        </Router>
+    );
 }
 
 export default App

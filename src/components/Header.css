@@ -1,0 +1,52 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+}
+
+.header>* {
+    margin: 10px;
+}
+
+.twenty-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.twenty-logo>h1 {
+    margin: 0;
+    color: #ddd;
+    font-family: 'Suit', sans-serif;
+    font-weight: 300;
+    font-size: 1.75rem;
+}
+
+.twenty-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.navigation {
+    display: flex;
+    gap: 2rem;
+    margin: 0 auto 0 30px;
+}
+
+.navigation>a>p {
+    margin: 0;
+    color: #ddd;
+    text-decoration: none;
+}
+
+.navigation>a>p:hover {
+    text-decoration: underline;
+}

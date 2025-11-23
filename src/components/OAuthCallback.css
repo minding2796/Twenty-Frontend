@@ -3,12 +3,11 @@
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #262626;
 }
 
 .oauth-callback-card {
-    background: white;
+    background: #171717;
     border-radius: 16px;
     padding: 60px 40px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -72,12 +71,12 @@
 .oauth-callback-card h2 {
     font-size: 24px;
     font-weight: 700;
-    color: #333;
+    color: #ffffff;
     margin: 0 0 12px 0;
 }
 
 .oauth-callback-card p {
     font-size: 16px;
-    color: #666;
+    color: #a6a6a6;
     margin: 0;
 }

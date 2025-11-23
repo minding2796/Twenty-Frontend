@@ -1,0 +1,99 @@
+.mp-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* background: #262626; */
+    color: #ddd;
+    min-height: calc(100vh - 60px);
+
+    background-image: url('../assets/background.png');
+    background-size: cover;
+    background-repeat: repeat-x;
+    position: relative;
+
+    animation-name: bg-slide;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+.mc-container {
+    color: #ddd;
+    font-size: 0.5rem;
+    padding: 30px;
+}
+
+.mc-container > h1 {
+    margin: 0;
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 20px;
+    gap: 0.75rem;
+}
+
+.stock-container {
+    display: flex;
+    flex-grow: 1;
+    margin-left: 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stock-container > * {
+    margin: 0;
+    color: #000;
+}
+
+.stock-container > p {
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.stock-container > h1 {
+    font-weight: 700;
+    font-size: 6rem;
+}
+
+@keyframes bg-slide {
+    from {
+        background-position: 100% 50%;
+    }
+
+    to {
+        background-position: 100vw 50%;
+    }
+}
+
+.mp-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(110deg, rgb(38, 38, 38, 1) 35%, rgb(38, 38, 38, 0.5) 45%);
+    z-index: 1;
+}
+
+.mp-container > * {
+    font-family: 'Suit', sans-serif;
+    font-weight: 300;
+    z-index: 10;
+}
+
+.hero-container > * {
+    font-weight: 300;
+    margin: 0;
+}
+
+.bold {
+    font-weight: 700;
+}

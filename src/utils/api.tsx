@@ -1,3 +1,5 @@
+import type {NewsData} from "../components/NewsCard.tsx";
+
 const API_BASE_URL = 'https://twenty-backend.thinkinggms.com';
 
 export interface UserData {
@@ -6,6 +8,11 @@ export interface UserData {
     email: string;
     picture: string;
     provider: 'GOOGLE' | 'DISCORD';
+    role: 'ADMIN' | 'USER';
+}
+
+export interface NewsList {
+    newsList: NewsData[];
 }
 
 export const api = {
@@ -37,6 +44,26 @@ export const api = {
         return response.json();
     },
 
+    async updateProfile(profile: UserData): Promise<UserData> {
+        const token = localStorage.getItem('accessToken');
+
+        if (!token) {
+            throw new Error('No token found');
+        }
+
+        const response = await fetch(`${API_BASE_URL}/api/auth/edit`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify(profile),
+        });
+
+        return response.json();
+    },
+
     async log(message: string): Promise<void> {
         const response = await fetch(`${API_BASE_URL}/debug/log?message=${encodeURIComponent(message)}`, {
             method: 'GET',
@@ -49,6 +76,38 @@ export const api = {
         if (!response.ok) {
             throw new Error('Failed to send log message');
         }
+    },
+
+    async getNewsList(): Promise<NewsList> {
+        const response = await fetch(`${API_BASE_URL}/api/announce/news-list`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to send log message');
+        }
+
+        return await response.json();
+    },
+
+    async getNews(id: number): Promise<NewsData> {
+        const response = await fetch(`${API_BASE_URL}/api/announce/news?id=${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to send log message');
+        }
+
+        return await response.json();
     },
 
     // OAuth2 로그인 URL 생성
