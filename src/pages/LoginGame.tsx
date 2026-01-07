@@ -1,19 +1,19 @@
-import React from 'react';
-import { api } from '../utils/api';
+import { api } from '../utils/api.tsx';
 import './Login.css';
 
-const Login: React.FC = () => {/*
-    const handleGoogleLogin = () => {
-        // 백엔드 OAuth2 엔드포인트로 리다이렉트
-        window.location.href = api.getGoogleLoginUrl();
-    };*/
+export default function LoginGame() {
 
     const handleDiscordLogin = () => {
         // 백엔드 OAuth2 엔드포인트로 리다이렉트
         window.location.href = api.getDiscordLoginUrl();
     };
 
-    window.history.replaceState({}, document.title, '/login');
+    const handleGoogleLogin = () => {
+        // 백엔드 OAuth2 엔드포인트로 리다이렉트
+        window.location.href = api.getGoogleLoginUrl();
+    };
+
+    window.history.replaceState({}, document.title, '/login-game');
 
     return (
         <div className="login-container">
@@ -21,7 +21,7 @@ const Login: React.FC = () => {/*
                 <h1 className="login-title">로그인</h1>
                 <p className="login-subtitle">계정을 선택하여 로그인하세요</p>
 
-                <div className="login-buttons">{/*
+                <div className="login-buttons">
                     <button
                         className="login-button google-button"
                         onClick={handleGoogleLogin}
@@ -34,7 +34,7 @@ const Login: React.FC = () => {/*
                         </svg>
                         Google로 로그인
                     </button>
-*/}
+
                     <button
                         className="login-button discord-button"
                         onClick={handleDiscordLogin}
@@ -49,5 +49,3 @@ const Login: React.FC = () => {/*
         </div>
     );
 };
-
-export default Login;

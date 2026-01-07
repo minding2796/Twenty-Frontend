@@ -5,7 +5,7 @@ import App from './App.tsx'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
-const showHeader = typeof window.Unity === 'undefined';
+const showHeader = window.location.href !== 'https://twenty.thinkinggms.com/login-game';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

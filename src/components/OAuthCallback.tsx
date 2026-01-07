@@ -32,7 +32,7 @@ const OAuthCallback: React.FC<OAuthCallbackProps> = ({onSuccess, onError}) => {
                     console.error('Failed to load user data:', e);
                 }
                 window.dispatchEvent(new CustomEvent('token', { detail: true }));
-                if (typeof window.Unity !== 'undefined') window.Unity.call(token);
+                window.location.replace(`tgs-twenty://authToken?token=${token}`);
 
                 // 성공 처리
                 onSuccess();

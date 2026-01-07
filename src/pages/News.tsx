@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './News.css';
-import NewsCard from "./NewsCard";
+import NewsCard from "../components/NewsCard.tsx";
 import {api} from "../utils/api.tsx";
 import type { JSX } from "react/jsx-runtime";
 

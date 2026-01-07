@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {api, type UserData} from '../utils/api';
+import {api, type UserData} from '../utils/api.tsx';
 import './ProfileEditPage.css';
 import './MyPage.css';
 

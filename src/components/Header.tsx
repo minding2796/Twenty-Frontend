@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Header.css';
 import icon from '../assets/Twenty.png';
-import Profile from "./Profile.tsx";
+import Profile from "../components/Profile";
 
 const Header: React.FC = () => {
     const [token, setToken] = useState(localStorage.getItem('accessToken') !== null);

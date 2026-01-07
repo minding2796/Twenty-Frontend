@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import './Profile.css';
 import non_profile from '../assets/non_profile.svg';
 import {api, type UserData} from "../utils/api.tsx";
-import HoverProfile from "./HoverProfile.tsx";
+import HoverProfile from "../components/HoverProfile.tsx";
 
 interface ProfileProps {
     isLoggedIn: boolean;

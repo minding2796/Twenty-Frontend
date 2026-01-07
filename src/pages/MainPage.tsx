@@ -3,7 +3,6 @@ import './MainPage.css';
 import gpb from '../assets/GetItOnGooglePlay_Badge_Web_color_Korean.png';
 
 const MainPage: React.FC = () => {
-    if (typeof window.Unity !== 'undefined') window.location.href = '/login';
     const [value, setValue] = useState(20);
     useEffect(() => {
         const basePrice = 20, maxPrice = 30, minPrice = 10;

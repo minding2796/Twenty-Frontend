@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './NewsPage.css';
-import type {NewsData} from "./NewsCard.tsx";
+import type {NewsData} from "../components/NewsCard.tsx";
 import {api} from "../utils/api.tsx";
 import {useParams} from "react-router-dom";
 

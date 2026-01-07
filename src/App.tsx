@@ -1,14 +1,15 @@
 import {useEffect, useState} from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './components/Login'
-import MyPage from './components/MyPage'
+import Login from './pages/Login.tsx'
+import MyPage from './pages/MyPage.tsx'
 import OAuthCallback from './components/OAuthCallback'
-import MainPage from './components/MainPage'
-import News from "./components/News";
+import MainPage from './pages/MainPage.tsx'
+import News from "./pages/News.tsx";
 import {api, type UserData} from './utils/api'
 import './App.css'
-import NewsPage from "./components/NewsPage.tsx";
-import ProfileEditPage from "./components/ProfileEditPage";
+import NewsPage from "./pages/NewsPage.tsx";
+import ProfileEditPage from "./pages/ProfileEditPage.tsx";
+import LoginGame from "./pages/LoginGame.tsx";
 
 function App() {
     const [user, setUser] = useState<UserData | null>(null);
@@ -35,7 +36,7 @@ function App() {
                 setLoading(false);
                 return;
             }
-            if (typeof window.Unity !== 'undefined') window.Unity.call(token);
+            window.location.replace(`tgs-twenty://authToken?token=${token}`);
 
             const userData = await api.getMe();
             setUser(userData);
@@ -129,9 +130,10 @@ function App() {
                 <Route path='/my-page' element={(user ? <MyPage user={user} onLogout={handleLogout}/> : <Login/>)}/>
                 <Route path='/my-page/edit' element={(user ? <ProfileEditPage user={user}/> : <Login/>)}/>
                 <Route path='/login' element={(user ? <MyPage user={user} onLogout={handleLogout}/> : <Login/>)}/>
-                <Route path='/' element={(typeof window.Unity !== 'undefined' ? (user ? <MyPage user={user} onLogout={handleLogout}/> : <Login/>) : <MainPage/>)}/>
-                <Route path='/news' element={(<News/>)}/>
-                <Route path='/news/:id' element={(<NewsPage/>)}/>
+                <Route path='/login-game' element={(user ? <MyPage user={user} onLogout={handleLogout}/> : <LoginGame/>)}/>
+                <Route path='/' element={<MainPage/>}/>
+                <Route path='/news' element={<News/>}/>
+                <Route path='/news/:id' element={<NewsPage/>}/>
             </Routes>
         </Router>
     );

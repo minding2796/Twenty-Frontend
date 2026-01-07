@@ -1,5 +1,5 @@
 import React from 'react';
-import type {UserData} from '../utils/api';
+import type {UserData} from '../utils/api.tsx';
 import './MyPage.css';
 
 interface MyPageProps {
